@@ -51,5 +51,17 @@ function HackathonsPage() {
         }
     };
 
+    return(
+        <>
+            <h1>Gestion des hackathons</h1>
+            {error&& <p>{error}</p>}
+            <HackathonForm 
+            initialValues={editingHackathon} 
+            onSubmit={handleSubmitForm} 
+            onCancel={() => setEditingHackathon(null)} 
+        />
+        <HackarhonList items={hackathons} onEdit={(hackathon) => setEditingHackathon(hackathon)} onDelete={handleDelete}/>
+        </>
+    );
     
 }
